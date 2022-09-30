@@ -7,7 +7,7 @@ public class BalancedBrackets {
      * the input string has a set of "balanced" brackets.
      *
      * That is, whether it consists entirely of pairs of opening/closing
-     * brackets (in that order), none of which mis-nest. We consider a bracket
+     * brackets (in that order), none of which mis-nested. We consider a bracket
      * to be square-brackets: [ or ].
      *
      * The string may contain non-bracket characters as well.
@@ -28,6 +28,9 @@ public class BalancedBrackets {
                 brackets++;
             } else if (ch == ']') {
                 brackets--;
+                if(brackets < 0){
+                    return false;
+                }
             }
         }
         return brackets == 0;
